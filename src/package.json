@@ -1,0 +1,20 @@
+{
+  "name": "My-Zomato-Backend",
+  "version": "1.0.0",
+  "description": "Backend for a Zomato clone app I'm writing for my own use",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Subhan Naeem",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
