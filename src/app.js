@@ -5,19 +5,16 @@ var bodyParser = require('body-parser')
 var axios = require('axios');
 const port = 4002;
 
-
-
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Add headers
+
+//for development CORS origin
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -58,8 +55,6 @@ app.post('/location', (req,res)=>{
 });
 
 
-console.log(__dirname)
-//for development
 app.get('*', (req, res) => res.sendFile('/index.html',{ root: __dirname }));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
