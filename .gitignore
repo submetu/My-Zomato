@@ -59,3 +59,6 @@ typings/
 
 #config file
 src/config.js
+
+#dist file
+src/public
