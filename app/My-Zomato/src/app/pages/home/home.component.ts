@@ -6,15 +6,17 @@ import {HtppService} from '../../services/http-service.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public location;
+  public searchedLocation;
+  public searchResults;
   constructor(private httpService:HtppService) { }
 
   ngOnInit() {
   }
   getLocationData(){
-    if(this.location){
-      this.httpService.getLocationData(this.location).subscribe(resp=>{
+    if(this.searchedLocation){
+      this.httpService.getLocationData(this.searchedLocation).subscribe(resp=>{
         console.log(resp);
+        this.searchResults = resp;
       })
     }
   }

@@ -1,2 +1,11 @@
-<input [(ngModel)]="location" type="text">
-<button (click)="getLocationData()">Search</button> 
+<div id="location-search">
+  <input [(ngModel)]="searchedLocation" type="text">
+  <button (click)="getLocationData()">Search</button>
+</div>
+<div *ngIf="searchResults" id="search-results">
+  <ul>
+    <li class="search-item" *ngFor="let location of searchResults" [attr.city-id]="location.city_id" >
+      {{location.title}}, {{location.city_name}} , {{location.country_name}}
+    </li>
+  </ul>
+</div>
