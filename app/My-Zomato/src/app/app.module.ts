@@ -11,6 +11,9 @@ import {HtppService} from './services/http-service.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 
+import { AgmCoreModule } from '@agm/core';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,10 +24,13 @@ import { HomeComponent } from './pages/home/home.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCsIx5Oc8G06rGfXvB0samfMC0tlxZLcaM'
+    })
   ],
   providers: [
-    HtppService
+    HtppService,
   ],
   bootstrap: [AppComponent]
 })

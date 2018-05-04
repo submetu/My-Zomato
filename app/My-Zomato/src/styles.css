@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color:#A3A6BA; 
+    padding: 10px;
+}
+
+ul{
+    list-style: none;
+    padding: 0px;
+}
+
+input{
+    outline: none;
+}

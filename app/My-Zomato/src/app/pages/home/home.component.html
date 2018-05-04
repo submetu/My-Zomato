@@ -1,11 +1,37 @@
 <div id="location-search">
-  <input [(ngModel)]="searchedLocation" type="text">
-  <button (click)="getLocationData()">Search</button>
+  <form>
+    <input id="location-input"  placeholder="Where do you wanna eat?" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchedLocation" type="text">
+    <button id="search-button" type="submit" (click)="getLocationData()" style="display:none;">Search</button>
+  </form>
 </div>
 <div *ngIf="searchResults" id="search-results">
   <ul>
-    <li class="search-item" *ngFor="let location of searchResults" [attr.city-id]="location.city_id" >
-      {{location.title}}, {{location.city_name}} , {{location.country_name}}
+    <li class="search-item" *ngFor="let location of searchResults" [attr.city-id]="location.city_id">
+      <div class="search-item-container">
+        <div class="title">
+            {{location.title}}
+        </div>
+        <div class="city-name">
+            {{location.city_name}}
+        </div>
+        <div class="country-name">
+            {{location.country_name}}
+        </div>
+        <div class="map">
+          <agm-map  [latitude]="location.latitude" [longitude]="location.longitude">
+            <agm-marker [latitude]="location.latitude" [longitude]="location.longitude">
+              <agm-info-window>{{location.city_name}}</agm-info-window>
+            </agm-marker>
+          </agm-map>
+        </div>
+
+      </div>
     </li>
   </ul>
+</div>
+<div *ngIf="formSubmittedOnce && !searchResults && !loading">
+ No such place found
+</div>
+<div *ngIf="formSubmittedOnce && loading">
+ Finding your place ...
 </div>
