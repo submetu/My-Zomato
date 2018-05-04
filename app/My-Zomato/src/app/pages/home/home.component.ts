@@ -1,4 +1,4 @@
-import { Component, OnInit, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {HtppService} from '../../services/http-service.service';
 @Component({
   selector: 'app-home',
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     let lastSearchedLocation = localStorage.getItem('last-searched');
     if(lastSearchedLocation){
       this.searchedLocation = lastSearchedLocation;
+      this.getLocationData();
     }
   }
   getLocationData(){
