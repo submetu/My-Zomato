@@ -17,3 +17,8 @@ input{
 .hidden{
     display:none !important;
 }
+
+.main-heading{
+    color:#383940;
+    font-size: 30px; 
+}

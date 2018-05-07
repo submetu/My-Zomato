@@ -1,6 +1,8 @@
+<h3 class="main-heading">Search for places</h3>
 <div id="location-search">
   <form>
-    <input id="location-input"  placeholder="Where do you wanna eat?" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchedLocation" type="text">
+    <input id="location-input" placeholder="Where do you wanna eat?" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchedLocation"
+      type="text">
     <button id="search-button" type="submit" (click)="getLocationData()" style="display:none;">Search</button>
   </form>
 </div>
@@ -8,23 +10,23 @@
   <ul>
     <li [ngClass]="{'card-expanded': mapShown}" class="search-item" *ngFor="let location of searchResults" [attr.city-id]="location.city_id">
       <div class="search-item-container">
-        <div class="map-tick" >
-            <i *ngIf="!mapShown" (click)="mapShown = true" class="fas fa-location-arrow"></i>
-            <i *ngIf="mapShown" (click)="mapShown = false"class="far fa-times-circle"></i>
+        <div class="map-tick">
+          <i *ngIf="!mapShown" (click)="mapShown = true" class="fas fa-location-arrow"></i>
+          <i *ngIf="mapShown" (click)="mapShown = false" class="far fa-times-circle"></i>
         </div>
         <div class="title">
-            {{location.title}}
+          {{location.title}}
         </div>
         <div class="city-name">
-            {{location.city_name}}
+          {{location.city_name}}
         </div>
         <div class="country-name">
-            {{location.country_name}}
+          {{location.country_name}}
         </div>
 
 
         <div class="map" *ngIf="mapShown">
-          <agm-map  [latitude]="location.latitude" [longitude]="location.longitude">
+          <agm-map [latitude]="location.latitude" [longitude]="location.longitude">
             <agm-marker [latitude]="location.latitude" [longitude]="location.longitude">
               <agm-info-window>{{location.city_name}}</agm-info-window>
             </agm-marker>
@@ -35,9 +37,31 @@
     </li>
   </ul>
 </div>
+
+
 <div *ngIf="formSubmittedOnce && !searchResults && !loading">
- No such place found
-</div>
-<div *ngIf="formSubmittedOnce && loading">
- Finding your place ...
+    No such place found
+  </div>
+  <div *ngIf="formSubmittedOnce && loading">
+    Finding your place ...
+  </div>
+
+
+<div *ngIf="previousSearches.length > 0" id="previous-searches">
+  <h3 class="main-heading">Previous Searches</h3>
+  <ul>
+    <li class="search-item" *ngFor="let previousSearch of previousSearches" [attr.city-id]="previousSearch.city_id">
+      <div class="search-item-container">
+        <div class="title">
+          {{previousSearch.title}}
+        </div>
+        <div class="city-name">
+          {{previousSearch.city_name}}
+        </div>
+        <div class="country-name">
+          {{previousSearch.country_name}}
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
