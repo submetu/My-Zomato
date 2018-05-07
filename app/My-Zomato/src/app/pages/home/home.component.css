@@ -14,9 +14,8 @@ agm-map{
 .search-item{
     background: #fffc;
     border-radius: 3px;
-    overflow: auto;
+    overflow: hidden;
     padding: 20px;
-    height: 122px;
     width: 225px;
     box-sizing: border-box;
     cursor:pointer;
@@ -60,7 +59,8 @@ agm-map{
 #previous-searches ul{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 #previous-searches li{
-   margin-right: 15px;
+   margin: 15px;
 }
