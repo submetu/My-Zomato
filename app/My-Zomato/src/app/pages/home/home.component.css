@@ -17,9 +17,12 @@ agm-map{
     -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.1);
     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.1);
     box-shadow: 0 1px 4px rgba(0,0,0,.1);
-    overflow: hidden;
-    width: 600px;
-    padding: 20px 0px;
+    overflow: auto;
+    padding: 20px;
+    height: 122px;
+    width: 225px;
+    box-sizing: border-box;
+    transition: all 300ms ease-in-out;
 }
 #location-input{
     margin: 40px 25px;
@@ -34,4 +37,15 @@ agm-map{
     background-repeat: no-repeat;
     color: white;
     font-size: 20px;
+}
+.title {
+    font-size: 20px;
+}
+.map-tick {
+    float: left;
+    cursor: pointer;
+}
+.card-expanded{
+    height: 350px !important; 
+    width: 500px;
 }

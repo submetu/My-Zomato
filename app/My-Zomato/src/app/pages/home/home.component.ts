@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   public formSubmittedOnce = false;
   public loading = false;
   public lastSearchedKey = 'last-searched';
+  public mapShown = false;
   constructor(private httpService:HtppService) { }
 
   

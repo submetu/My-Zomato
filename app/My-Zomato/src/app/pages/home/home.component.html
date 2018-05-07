@@ -6,8 +6,12 @@
 </div>
 <div *ngIf="searchResults" id="search-results">
   <ul>
-    <li class="search-item" *ngFor="let location of searchResults" [attr.city-id]="location.city_id">
+    <li [ngClass]="{'card-expanded': mapShown}" class="search-item" *ngFor="let location of searchResults" [attr.city-id]="location.city_id">
       <div class="search-item-container">
+        <div class="map-tick" >
+            <i *ngIf="!mapShown" (click)="mapShown = true" class="fas fa-location-arrow"></i>
+            <i *ngIf="mapShown" (click)="mapShown = false"class="far fa-times-circle"></i>
+        </div>
         <div class="title">
             {{location.title}}
         </div>
@@ -17,7 +21,9 @@
         <div class="country-name">
             {{location.country_name}}
         </div>
-        <div class="map">
+
+
+        <div class="map" *ngIf="mapShown">
           <agm-map  [latitude]="location.latitude" [longitude]="location.longitude">
             <agm-marker [latitude]="location.latitude" [longitude]="location.longitude">
               <agm-info-window>{{location.city_name}}</agm-info-window>

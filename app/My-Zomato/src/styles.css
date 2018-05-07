@@ -2,6 +2,7 @@
 body{
     background-color:#A3A6BA; 
     padding: 10px;
+    font-family: sans-serif;
 }
 
 ul{
@@ -11,4 +12,8 @@ ul{
 
 input{
     outline: none;
+}
+
+.hidden{
+    display:none !important;
 }
